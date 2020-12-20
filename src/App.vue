@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <router-view />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
+<script lang="ts">
+import { Ref, ref, provide } from 'vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  setup () {
+    const menuFlagValue = ref(true);
+    provide<Ref<boolean>>("menuFlagValue", menuFlagValue);
   }
 }
 </script>
