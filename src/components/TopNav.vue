@@ -1,10 +1,11 @@
 <template>
-  <div class="topnav" @click="toggleMenu">
+  <div class="topnav">
     <div class="logo">LOGO</div>
-    <div class="menu">
+    <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
-    </div>
+    </ul>
+    <span class="toggleAside" @click="toggleMenu"></span>
   </div>
 </template>
 
@@ -28,22 +29,52 @@ export default {
   background: pink;
   display: flex;
   padding: 16px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10;
-> .logo {
-  max-width: 6em;
-  margin-right: auto;
-}
+  justify-content: center;
+  align-items: center;
 
-> .menu {
-  display: flex;
-  white-space: nowrap;
-  flex-wrap: nowrap;
+  > .logo {
+    max-width: 6em;
+    margin-right: auto;
+  }
 
-> li {
-  margin: 0 1em;
-}
+  > .menu {
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 
-}
+    > li {
+      margin: 0 1em;
+    }
+  }
+
+  > .toggleAside {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: red;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /*设置响应式, 当界面宽度缩小为500px时 menu隐藏, logo自动居中*/
+  @media (max-width: 500px) {
+    > .menu {
+      display: none;
+    }
+    > .logo {
+      margin: 0 auto;
+    }
+    > .toggleAside {
+      display: inline-block;
+    }
+  }
+
 }
 </style>
