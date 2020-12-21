@@ -1,10 +1,15 @@
 <template>
-  <div style="margin-top: 100px;margin-left: 200px">SwitchDemo</div>
+  <div style="margin-top: 100px;margin-left: 200px">
+    SwitchDemo<br>
+    <JySwitch />
+  </div>
 </template>
 
 <script lang="ts">
+import JySwitch from "../lib/switch/JySwitch.vue";
 export default {
-  name: "SwitchDemo"
+  name: "SwitchDemo",
+  components: {JySwitch}
 }
 </script>
 
